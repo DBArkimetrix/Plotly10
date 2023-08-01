@@ -1,0 +1,22 @@
+@keyframes scrolling {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.scrolling-text {
+    animation: scrolling 10s linear infinite;
+    font-size: 80px;
+    color: rgb(40, 112, 40);
+    white-space: nowrap;
+}
+body {
+    background-image: url('https: //media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}

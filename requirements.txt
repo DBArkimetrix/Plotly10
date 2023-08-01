@@ -1,8 +1,8 @@
-flask==2.2.*
-dash==2.11.*
+flask
+dash
 matplotlib
-pillow==10.0.*
-pandas==2.0.*
-dash-bootstrap-components==1.4.*
-pypistats==1.4.*
+pillow
+pandas
+dash-bootstrap-components
+pypistats
 gunicorn

@@ -44,6 +44,7 @@ def create_image(size_big, size_small):
 
 
 # Function to create a scatter plot
+# Function to create a scatter plot
 def create_scatter(N=100):
     random_x = np.random.randn(N)
     random_y = np.random.randn(N)
@@ -71,7 +72,7 @@ def create_scatter(N=100):
         paper_bgcolor='#010001',
         font_color="white",
         showlegend=False,
-        xaxis=dict(range=[-4, 4]),  # you might want to fix the x and y ranges so the 'confetti' doesn't scatter off the chart
+        xaxis=dict(range=[-4, 4], title="Confetti 😊"),  # added title
         yaxis=dict(range=[-4, 4]),
         margin=dict(l=0, r=0, b=0, t=0)  # remove margins
     )

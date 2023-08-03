@@ -166,8 +166,8 @@ def update_graph(size_big, size_small):
     data = create_image(size_big, size_small)
     
     fig = px.imshow(data, color_continuous_scale='gray')
-    fig.update_xaxes(showticklabels=False, showgrid=False) # no grid lines
-    fig.update_yaxes(showticklabels=False, showgrid=False) # no grid lines
+    fig.update_xaxes(showticklabels=False, showgrid=False, linecolor='#010001') # linecolor matches the background
+    fig.update_yaxes(showticklabels=False, showgrid=False, linecolor='#010001') # linecolor matches the background
     fig.update_layout(
         autosize=True,
         plot_bgcolor='#010001',

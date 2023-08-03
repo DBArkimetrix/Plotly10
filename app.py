@@ -71,7 +71,7 @@ def create_scatter(N=100):
         paper_bgcolor='#010001',
         font_color="white",
         showlegend=False,
-        xaxis=dict(range=[-4, 4], showgrid=False, zeroline=False, showticklabels=False),
+        xaxis=dict(range=[-4, 4], showgrid=False, zeroline=False, showticklabels=False, title="Confetti 😊"),  # added title back
         yaxis=dict(range=[-4, 4], showgrid=False, zeroline=False, showticklabels=False),
         margin=dict(l=0, r=0, b=0, t=0)  # remove margins
     )

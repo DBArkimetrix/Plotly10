@@ -44,7 +44,6 @@ def create_image(size_big, size_small):
 
 
 # Function to create a scatter plot
-# Function to create a scatter plot
 def create_scatter(N=100):
     random_x = np.random.randn(N)
     random_y = np.random.randn(N)
@@ -72,8 +71,6 @@ def create_scatter(N=100):
         paper_bgcolor='#010001',
         font_color="white",
         showlegend=False,
-        xaxis=dict(range=[-4, 4], title="Confetti 😊"),  # added title
-        yaxis=dict(range=[-4, 4]),
         xaxis=dict(range=[-4, 4], showgrid=False, zeroline=False, showticklabels=False),
         yaxis=dict(range=[-4, 4], showgrid=False, zeroline=False, showticklabels=False),
         margin=dict(l=0, r=0, b=0, t=0)  # remove margins
@@ -110,15 +107,7 @@ app = dash.Dash(__name__)
 server = app.server
 
 app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-direction': 'row', 'height': '100vh', 'backgroundColor': '#010001'}, children=[
-    html.Div(style={'position': 'absolute', 'top': 0, 'left': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
-    html.Div(style={'position': 'absolute', 'top': 0, 'right': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
-    html.Div(style={'position': 'absolute', 'bottom': 0, 'left': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
-    html.Div(style={'position': 'absolute', 'bottom': 0, 'right': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
-    dcc.Interval(
-        id='interval-component',
-        interval=1*1000,  # in milliseconds
-        n_intervals=0
-    ),
+    # ... [leave the image Divs and interval-component untouched]
     dcc.Graph(
         id='scatter-graph',
         figure=create_scatter()
@@ -131,7 +120,7 @@ app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify
                 max=1000,
                 step=10,
                 value=600,
-                marks={i: '' for i in range(100, 1100, 100)},
+                marks={i: str(i) for i in range(100, 1100, 100)},  # Changed this line to have actual labels
             ),
         ], style={'margin': '20px', 'width': '80%'}),
 
@@ -142,7 +131,7 @@ app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify
                 max=200,
                 step=10,
                 value=80,
-                marks={i: '' for i in range(50, 600, 50)},
+                marks={i: str(i) for i in range(50, 210, 50)},  # Changed this line to have actual labels
             ),
         ], style={'margin': '20px', 'width': '80%'}),
 
@@ -159,8 +148,8 @@ app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify
     ),
 
     html.Div(children=[
-    html.P("Best wishes from Danny Bharat and the team at Arkimetrix Analytics", className="scrolling-text"),
-], style={'position': 'fixed', 'bottom': '0', 'width': '100%', 'textAlign': 'center'}),
+        html.P("Best wishes from Danny Bharat and the team at Arkimetrix Analytics", className="scrolling-text"),
+    ], style={'position': 'fixed', 'bottom': '0', 'width': '100%', 'textAlign': 'center'}),
 ])
 
 @app.callback(
@@ -171,8 +160,8 @@ def update_graph(size_big, size_small):
     data = create_image(size_big, size_small)
     
     fig = px.imshow(data, color_continuous_scale='gray')
-    fig.update_xaxes(showticklabels=False, showgrid=False, linecolor='#010001') # linecolor matches the background
-    fig.update_yaxes(showticklabels=False, showgrid=False, linecolor='#010001') # linecolor matches the background
+    fig.update_xaxes(showticklabels=False, showgrid=False, zeroline=False) 
+    fig.update_yaxes(showticklabels=False, showgrid=False, zeroline=False)
     fig.update_layout(
         autosize=True,
         plot_bgcolor='#010001',
@@ -183,7 +172,6 @@ def update_graph(size_big, size_small):
     )
     return fig
 
-# And this callback
 @app.callback(Output('scatter-graph', 'figure'),
               [Input('interval-component', 'n_intervals')])
 def update_graph_live(n):

@@ -74,6 +74,8 @@ def create_scatter(N=100):
         showlegend=False,
         xaxis=dict(range=[-4, 4], title="Confetti 😊"),  # added title
         yaxis=dict(range=[-4, 4]),
+        xaxis=dict(range=[-4, 4], showgrid=False, zeroline=False, showticklabels=False),
+        yaxis=dict(range=[-4, 4], showgrid=False, zeroline=False, showticklabels=False),
         margin=dict(l=0, r=0, b=0, t=0)  # remove margins
     )
     return fig
@@ -97,6 +99,9 @@ def create_line():
         paper_bgcolor='#010001',
         font_color="white",
         showlegend=False,
+        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        margin=dict(l=0, r=0, b=0, t=0)
     )
     return fig
 

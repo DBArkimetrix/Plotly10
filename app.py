@@ -107,7 +107,16 @@ app = dash.Dash(__name__)
 server = app.server
 
 app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-direction': 'row', 'height': '100vh', 'backgroundColor': '#010001'}, children=[
-    # ... [leave the image Divs and interval-component untouched]
+    app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-direction': 'row', 'height': '100vh', 'backgroundColor': '#010001'}, children=[
+    html.Div(style={'position': 'absolute', 'top': 0, 'left': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
+    html.Div(style={'position': 'absolute', 'top': 0, 'right': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
+    html.Div(style={'position': 'absolute', 'bottom': 0, 'left': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
+    html.Div(style={'position': 'absolute', 'bottom': 0, 'right': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
+    dcc.Interval(
+        id='interval-component',
+        interval=1*1000,  # in milliseconds
+        n_intervals=0
+    ),
     dcc.Graph(
         id='scatter-graph',
         figure=create_scatter()

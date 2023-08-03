@@ -107,7 +107,6 @@ app = dash.Dash(__name__)
 server = app.server
 
 app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-direction': 'row', 'height': '100vh', 'backgroundColor': '#010001'}, children=[
-    app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify-content': 'center', 'align-items': 'center', 'flex-direction': 'row', 'height': '100vh', 'backgroundColor': '#010001'}, children=[
     html.Div(style={'position': 'absolute', 'top': 0, 'left': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
     html.Div(style={'position': 'absolute', 'top': 0, 'right': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),
     html.Div(style={'position': 'absolute', 'bottom': 0, 'left': 0}, children=[html.Img(src='https://media.giphy.com/media/MViYNpI0wx69zX7j7w/giphy.gif')]),

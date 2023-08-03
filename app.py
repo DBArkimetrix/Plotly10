@@ -145,7 +145,7 @@ app.layout = html.Div(style={'position': 'relative', 'display': 'flex', 'justify
             dcc.Graph(
                 id='example-graph'
             )
-        ], style={'textAlign': 'center'}),
+        ], style={'textAlign': 'center','overflow': 'hidden'}),
     ]),
 
     dcc.Graph(
